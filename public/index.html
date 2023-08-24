@@ -3,98 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chat App</title>
+  <title>100x-chat</title>
+  <link rel="stylesheet" href="./style.css"/>
 </head>
-<!-- ... (previous HTML code) -->
-<style>
-  body {
-    background: linear-gradient(to bottom right, #FbE4DB, #DFB6B2 , #854F6C , #522B5B , #2B124C , #190019);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-
-  #chat {
-    display: flex;
-    flex-direction: column;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
-    padding: 20px;
-    width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-
-  #messages {
-    height: 100px; /* Set the maximum height */
-    overflow-y: auto;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 10px;
-    text-align: left;
-  }
-
-  .message {
-    margin: 5px 0;
-    padding: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.7);
-    display: inline-block;
-    text-align: left;
-  }
-
-  #username{
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 10px; 
-    max-width: 100%;
-    margin: 10px;
-
-  }
-  #input{
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 10px; 
-    
-    max-width: 100%;
-    margin: 10px;
-
-  }
-  #sendButton {
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    max-width: 100%;
-    font-size: 16px;
-    background-color: whitesmoke;
-    outline-color:#522B5B ;
-    outline-width: 0.1rem;
-    color: #522B5B;
-  
-  }
-
-  #sendButton {
-    background-color:black;
-    outline-color:#ca75dd ;
-    outline-width: 1rem;
-    color: #f3cbfc;
-  }
-
-  
-</style>
-<!-- ... (remaining HTML code) -->
-
-<!-- ... (remaining HTML code) -->
 
 <body>
   <div id="chat">
-    <div id="messages"></div>
+    <div id="messages" class="message-container"></div>
     <input id="username" placeholder="Enter your username...">
     <input id="input" placeholder="Type a message...">
     <button id="sendButton">Send</button>
@@ -141,11 +56,11 @@
     }
 
     socket.on('message', ({ username, message }) => {
-      const messageDiv = document.createElement('div');
-      messageDiv.textContent = `${username}: ${message}`;
-      messagesDiv.appendChild(messageDiv);
-    });
-
+  const messageDiv = document.createElement('div');
+  messageDiv.classList.add('message'); // Add 'message' class for styling
+  messageDiv.textContent = `${username} ~${message}`;
+  messagesDiv.insertBefore(messageDiv, messagesDiv.firstChild); // Insert at the beginning
+});
     socket.on('clear', () => {
       messagesDiv.innerHTML = '';
     });

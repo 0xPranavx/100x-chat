@@ -10,13 +10,17 @@ const io = socketIO(server);
 app.use(express.static(path.join(__dirname, 'public')));
 
 io.on('connection', (socket) => {
-  console.log('A user connected');
+  
 
   socket.on('message', ({ username, message }) => {
-    console.log(username,message);
+   
     const emojiMapping = {
       hey: '👋',
-      nice: '👌',
+      react:'⚛️',
+      woah: ' 😲',
+      lol: '😂',
+      like:'👍',
+      congratulations: '🎉',
       // Add more mappings as needed
     };
     const words = message.split(' ');
@@ -38,12 +42,12 @@ io.on('connection', (socket) => {
   });
 
   socket.on('disconnect', () => {
-    console.log('A user disconnected');
+    
   });
 });
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT;
 
 server.listen(PORT, () => {
-  console.log('Server is running on port 3000');
+  
 });
