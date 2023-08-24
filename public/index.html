@@ -26,13 +26,14 @@
 
     let username = '';
 
-    usernameInput.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter') {
-        setUsername();
-      }
-    });
+    // usernameInput.addEventListener('keydown', (event) => {
+    //   if (event.key === 'Enter') {
+    //     setUsername();
+    //   }
+    // });
 
     sendButton.addEventListener('click', () => {
+      setUsername();
       sendMessage();
     });
 

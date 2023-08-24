@@ -1,5 +1,12 @@
+html{
+  background-color: #fdfdfe;
+  opacity: 0.8;
+  background-image:  linear-gradient(#fbaf8f 2px, transparent 2px), linear-gradient(to right, #fbaf8f 2px, #fdfdfe 2px);
+  background-size: 40px 40px;
+}
+
 body {
-    background: linear-gradient(to bottom right, #FbE4DB, #DFB6B2 , #854F6C , #522B5B , #2B124C , #190019);
+    /* background: linear-gradient(to bottom right, #FbE4DB, #DFB6B2 , #854F6C , #522B5B , #2B124C , #190019); */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,10 +25,13 @@ body {
     width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     text-align: center;
+    justify-content: center;
+    align-items: center;
   }
 
   #messages {
-    height: 500px; /* Set the maximum height */
+    height: 500px;
+    width: 390px; /* Set the maximum height */
     overflow-y: auto;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -45,6 +55,7 @@ body {
     padding: 10px; 
     max-width: 100%;
     margin: 10px;
+    width: 390px;
 
   }
   #input{
@@ -54,10 +65,11 @@ body {
     
     max-width: 100%;
     margin: 10px;
+    width: 390px;
 
   }
   #sendButton {
-    margin: 10px 0;
+   
     padding: 10px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 8px;
@@ -66,7 +78,7 @@ body {
     background-color: whitesmoke;
     outline-color:#522B5B ;
     outline-width: 0.1rem;
-    color: #522B5B;
+  
   
   }
 
@@ -74,7 +86,8 @@ body {
     background-color:black;
     outline-color:#ca75dd ;
     outline-width: 1rem;
-    color: #f3cbfc;
+    color: white;
+    width: 390px;
   }
 
   .message-container {
